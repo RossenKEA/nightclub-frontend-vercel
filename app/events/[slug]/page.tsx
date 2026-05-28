@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getEvent } from "@/lib/api";
+import { API_URL, getEvent } from "@/lib/api";
 import { getComments } from "@/lib/api";
 import CommentForm from "@/components/CommentForm";
 import PageHero from "@/components/PageHero";
@@ -14,7 +14,7 @@ type Props = {
 export default async function EventPage({ params }: Props) {
   const { slug } = await params;
   const event = await getEvent(slug);
-  const heroImageUrl = `${process.env.NEXT_PUBLIC_API_URL}${event.heroAsset.url}`;
+  const heroImageUrl = `${API_URL}${event.heroAsset.url}`;
   const comments = await getComments(event.id.toString());
 
   const eventDate = new Date(event.date).toLocaleDateString("en-GB", {

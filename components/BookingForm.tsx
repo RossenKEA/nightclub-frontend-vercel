@@ -7,6 +7,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import type { Event } from "@/lib/types";
+import { API_URL } from "@/lib/api";
 
 const bookingSchema = z.object({
   name: z.string().min(2, "Enter your name"),
@@ -94,7 +95,7 @@ export default function BookingForm({ events }: BookingFormProps) {
 
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/reservations?eventId=${selectedEventId}`
+          `${API_URL}/reservations?eventId=${selectedEventId}`
         );
 
         if (!res.ok) {
@@ -144,7 +145,7 @@ export default function BookingForm({ events }: BookingFormProps) {
     }
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reservations`, {
+      const res = await fetch(`${API_URL}/reservations`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

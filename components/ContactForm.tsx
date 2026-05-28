@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { API_URL } from "@/lib/api";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Enter your name"),
@@ -29,7 +30,7 @@ export default function ContactForm() {
     setFeedback("");
 
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/contact_messages`,
+      `${API_URL}/contact_messages`,
       {
         method: "POST",
         headers: {

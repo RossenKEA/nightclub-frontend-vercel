@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getEvents } from "@/lib/api";
+import { API_URL, getEvents } from "@/lib/api";
 import PageHero from "@/components/PageHero";
 
 type SearchParams = Promise<{
@@ -51,7 +51,7 @@ function EventRow({
   event: any;
   reversed: boolean;
 }) {
-  const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}${event.asset.url}`;
+  const imageUrl = `${API_URL}${event.asset.url}`;
 
   return (
     <article className="grid md:grid-cols-2">

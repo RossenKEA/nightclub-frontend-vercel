@@ -1,3 +1,4 @@
+import { API_URL } from "@/lib/api";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,7 +19,7 @@ type EventCardProps = {
 };
 
 export default function EventCard({ event, variant = "default" }: EventCardProps) {
-  const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}${event.asset.url}`;
+  const imageUrl = `${API_URL}${event.asset.url}`;
   const date = new Date(event.date).toLocaleDateString("en-GB", {
     day: "2-digit",
     month: "short",

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { API_URL } from "@/lib/api";
 
 const newsletterSchema = z.object({
   email: z.string().email("Enter a valid email address"),
@@ -26,7 +27,7 @@ export default function NewsletterForm() {
   async function onSubmit(data: NewsletterFormData) {
     setFeedback("");
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/newsletters`, {
+    const res = await fetch(`${API_URL}/newsletters`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

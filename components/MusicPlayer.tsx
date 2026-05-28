@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-
-const API = process.env.NEXT_PUBLIC_API_URL;
+import { API_URL } from "@/lib/api";
 
 const tracks = [
   {
@@ -159,7 +158,7 @@ export default function MusicPlayer() {
         {/* Artist image — hidden on mobile, shown on desktop */}
         <div className="relative hidden h-72 w-72 shrink-0 overflow-hidden lg:block">
           <Image
-            src={`${API}${currentTrack.imagePath}`}
+            src={`${API_URL}${currentTrack.imagePath}`}
             alt={currentTrack.imageAlt}
             fill
             className="object-cover"
@@ -259,7 +258,7 @@ export default function MusicPlayer() {
         <div className="lg:hidden">
           <div className="relative w-full overflow-hidden aspect-video">
             <Image
-              src={`${API}${tracks[currentIndex].imagePath}`}
+              src={`${API_URL}${tracks[currentIndex].imagePath}`}
               alt={tracks[currentIndex].imageAlt}
               fill
               className="object-cover"
@@ -328,7 +327,7 @@ export default function MusicPlayer() {
                   }`}
                 >
                   <Image
-                    src={`${API}${track.imagePath}`}
+                    src={`${API_URL}${track.imagePath}`}
                     alt={track.imageAlt}
                     fill
                     className="object-cover transition duration-500 group-hover:scale-105"

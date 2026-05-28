@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { API_URL } from "@/lib/api";
 
 const commentSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -32,7 +33,7 @@ export default function CommentForm({ eventId }: CommentFormProps) {
   async function onSubmit(data: CommentFormData) {
     setMessage("");
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/comments`, {
+    const res = await fetch(`${API_URL}/comments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

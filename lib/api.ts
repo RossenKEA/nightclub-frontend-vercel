@@ -1,6 +1,7 @@
 import type { Event } from "./types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://nightclub-491m.onrender.com";
+export const API_URL =
+    process.env.NEXT_PUBLIC_API_URL || "https://nightclub-491m.onrender.com";
 
 if (!API_URL) {
     throw new Error("Missing NEXT_PUBLIC_API_URL");
@@ -106,3 +107,4 @@ export async function getTestimonials() {
 
     return res.json();
 }
+
