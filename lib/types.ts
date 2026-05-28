@@ -1,0 +1,22 @@
+export type Event = {
+  id: number;
+  slug: string;
+  title: string;
+  name?: string;
+  excerpt: string;
+  description: string;
+  content: string;
+  date: string;
+  doorsOpen: string;
+  startTime?: string;
+  location: string;
+  category: string;
+  scene?: string;
+  lineup: string[];
+  schedule: { time: string; label: string }[];
+  price: string;
+  ageLimit: string;
+  isFeatured: boolean;
+  asset: { url: string; width: number; height: number; alt: string };
+  heroAsset: { url: string; width: number; height: number; alt: string };
+};
